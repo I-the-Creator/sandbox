@@ -1,0 +1,33 @@
+/* Style buttons */
+.btn {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: RoyalBlue;
+}
+
+
+.section__homework-block .practice {
+    background: url(../img/practice.png) left no-repeat;
+    color: #F7DF1E;
+    padding-left: 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 15px !important;
+    line-height: 21px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.section__homework {
+    
+    
+    
+}

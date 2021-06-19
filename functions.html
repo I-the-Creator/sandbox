@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Программирование на kavaScript с Нуля до Гуру 2.0</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Изучаем kavaScript." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- для адаптивности сайта -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />  <!-- совместимость с браузером EDGE -->
+	<script>
+        "use strict";
+                //  Recursive Fibonachi 
+        function fib(n) {   //  f(n) = f(n-1) + f(n-2)
+            if(n < 0) return 0;
+            if (n <= 2) return 1;
+            return fib(n - 1) + fib (n - 2);
+        }
+        console.log(fib(8));
+        
+        function fib_2(n) {  // Looped Fibonachi
+            if(n < 0) return 0;
+            if (n <= 2) return 1;
+            let prev = 1;
+            let cur = 1;
+            for(let i = 0; i < n - 2; i++) {
+                let tmp = cur;
+                cur += prev;
+                prev = tmp;
+            }
+        return cur;
+        }
+        console.log(fib_2(50));
+
+        let array = [21, 1, 5, 29, 3, 23, 25, 5, 79, 25, 89, 464, 2, 78, 669];   
+        function smallestArrElement(arr) { // selection sort - smallest element of array
+            let smallest;
+            let smallestIndex;
+            if (arr.length != 0) {
+                smallest = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < smallest) {
+                        smallest = arr[i];
+                        smallestIndex = i;
+                    }      
+                }
+            }   
+            else smallest = 0;         
+            return smallest;
+        }
+        console.log(smallestArrElement(array));
+
+        let arrNew = [];
+        function sortArr(arr) {  // sorting array from min to max, based on selection sort
+            for(let i = 0; i <= arr.length; i++) {
+                let smallest = smallestArrElement(arr);
+                arrNew.push(smallest); // create new array and add smallest at the end
+                arr.splice(arr.indexOf(smallest), 1);  // method splice() removes 'smallest' (only 1) element from array, based on index
+            }
+            return arrNew;
+        }
+        console.log(sortArr(array));
+        console.log(array);
+
+        let arr2 = [2, 3, 7];
+        function arrSum(arr) {  // add up all the array elements with recursive
+            let sum;
+            if (arr.length == 0) return sum = 0;
+            sum = arr.shift() + arrSum(arr);  // returns array's first element value and delete it from array
+            return sum;
+        }
+        console.log(arrSum(arr2));
+
+        function arrSum2(arr) {  // add up all the array elements with loop
+            let sum;
+            if (arr.length == 0) sum = 0;
+            else {
+                sum = 0;
+                for (let i = 0; i < arr.length; i++) sum += arr[i];
+            }
+            return sum;
+        }
+        console.log(arrSum2(arrNew));
+
+        function getMaxValueRec(arr) {   // maximum array element with recursion
+            if (arr.length == 1) return arr[0];
+            if (arr.length == 2) return (arr[0] > arr[1])? arr[0] : arr[1];
+            let max = getMaxValueRec(arr.slice(1));  //  The slice() method returns new array w/o first element of the original array
+            return (arr[0] > max)? arr[0] : max;
+        }
+        console.log(getMaxValueRec([2, 9, 3, 5, 6]));
+    </script>
+</head>
+</html>
